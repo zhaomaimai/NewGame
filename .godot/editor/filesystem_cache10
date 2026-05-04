@@ -1,7 +1,8 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1777905101
-::res://data/::1777904739
-cities.json::JSON::-1::1777904980::0::1::::<><><>0<>0<><>::
+::res://::1777907220
+136565.pub::CryptoKey::-1::1777906355::0::1::::<><><>0<>0<><>::
+::res://data/::1777905102
+cities.json::JSON::-1::1777905127::0::1::::<><><>0<>0<><>::
 map_full.png::CompressedTexture2D::6168855322834049494::1777904738::1777905102::1::::<><><>0<>0<>545eaff71673668afa0c3e4bdeafb798<>res://.godot/imported/map_full.png-127632260d7e78aff677e8baa729945c.ctex::
 palette.json::JSON::-1::1777904738::0::1::::<><><>0<>0<><>::
 ::res://scenes/::1777904189
@@ -12,7 +13,7 @@ test_runner.tscn::PackedScene::-1::1777904238::0::1::::<><><>0<>0<><>::res://scr
 ::res://scenes/map/::1777904189
 ::res://scenes/ui/::1777904189
 ::res://scripts/::1777904189
-::res://scripts/core/::1777904221
+::res://scripts/core/::1777905102
 debug_system.gd::GDScript::9091949945071714409::1777904209::0::1::::DebugSystem<>Node<><>0<>0<><>::
 game_state.gd::GDScript::538192200901942441::1777904205::0::1::::GameState<>Node<><>0<>0<><>::
 random_manager.gd::GDScript::8739001382441665621::1777904214::0::1::::RandomManager<>Node<><>0<>0<><>::
