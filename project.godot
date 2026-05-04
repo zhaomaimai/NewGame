@@ -1,0 +1,27 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="SAN5PK_Remake"
+config/description="三国志5威力加强版 Godot 4 重制"
+config/features=PackedStringArray("4.6")
+
+[autoload]
+
+GameState="*res://scripts/core/game_state.gd"
+DebugSystem="*res://scripts/core/debug_system.gd"
+RandomManager="*res://scripts/core/random_manager.gd"
+TestRunner="*res://scripts/core/test_runner.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=960
