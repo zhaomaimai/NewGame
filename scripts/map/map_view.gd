@@ -1,6 +1,6 @@
-# version: C2_v4
+# version: C2_v7
 # last_modified_cycle: C2
-# Map view: shows map background + city markers. No coordinate transform needed.
+# Map view: shows map background + city markers + connection lines.
 
 extends Control
 
@@ -8,9 +8,20 @@ extends Control
 @onready var city_editor: Node = $CityEditor
 
 
+@onready var connection_lines: Control = $ConnectionLines
+@onready var freehand_lines: Control = $FreehandLines
+
+
 func _ready():
 	_create_markers()
 	city_editor.setup(self, markers)
+
+
+func refresh_connections() -> void:
+	if connection_lines:
+		connection_lines.queue_redraw()
+	if freehand_lines:
+		freehand_lines.queue_redraw()
 
 
 func _create_markers():
