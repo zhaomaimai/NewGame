@@ -3,8 +3,6 @@
 
 extends Node
 
-class_name GameState
-
 var _data: Dictionary = {}
 var _config: Dictionary = {}
 
@@ -24,23 +22,28 @@ func clear() -> void:
 	_config.clear()
 
 func save_game(slot: int) -> void:
-	var path := "user://save_%02d.tres" % slot
-	var save_dict := _data.duplicate(true)
-	var err := ResourceSaver.save(save_dict, path)
-	if err != OK:
-		DebugSystem.print_dbg("[GS] save_game slot=%d FAILED err=%d" % [slot, err])
-	else:
+	var path := "user://save_%02d.json" % slot
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(_data, "\t"))
+		file.close()
 		DebugSystem.print_dbg("[GS] save_game slot=%d OK" % slot)
+	else:
+		DebugSystem.print_dbg("[GS] save_game slot=%d FAILED" % slot)
 
 func load_game(slot: int) -> bool:
-	var path := "user://save_%02d.tres" % slot
-	if not ResourceLoader.exists(path):
+	var path := "user://save_%02d.json" % slot
+	if not FileAccess.file_exists(path):
 		DebugSystem.print_dbg("[GS] load_game slot=%d NOT_FOUND" % slot)
 		return false
-	var loaded = ResourceLoader.load(path)
-	if loaded == null:
-		DebugSystem.print_dbg("[GS] load_game slot=%d FAILED" % slot)
-		return false
-	_data = loaded.duplicate(true)
-	DebugSystem.print_dbg("[GS] load_game slot=%d OK" % slot)
-	return true
+	var file := FileAccess.open(path, FileAccess.READ)
+	if file:
+		var json_str := file.get_as_text()
+		var loaded := JSON.parse_string(json_str) as Dictionary
+		file.close()
+		if loaded:
+			_data = loaded
+			DebugSystem.print_dbg("[GS] load_game slot=%d OK" % slot)
+			return true
+	DebugSystem.print_dbg("[GS] load_game slot=%d FAILED" % slot)
+	return false

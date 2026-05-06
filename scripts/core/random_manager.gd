@@ -3,8 +3,6 @@
 
 extends Node
 
-class_name RandomManager
-
 var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:

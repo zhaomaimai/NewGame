@@ -3,8 +3,6 @@
 
 extends Node
 
-class_name TestRunner
-
 var tests: Array[Callable] = []
 var _names: Array[String] = []
 

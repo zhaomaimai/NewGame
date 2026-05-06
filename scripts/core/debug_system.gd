@@ -3,8 +3,6 @@
 
 extends Node
 
-class_name DebugSystem
-
 static var debug_mode: bool = false
 
 static func print_dbg(msg: String) -> void:
