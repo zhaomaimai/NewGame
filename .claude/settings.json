@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(python -c ' *)",
+      "Bash(ls -la scripts/turn/)",
+      "Bash(ls -la scripts/city/)",
+      "Bash(ls -la scenes/ui/)",
+      "Bash(ls -la scripts/main/)"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c3cityinfopanel"]
+
+[ext_resource type="Script" path="res://scripts/ui/city_info_panel.gd" id="1"]
+
+[node name="CityInfoPanel" type="Panel"]
+script = ExtResource("1")

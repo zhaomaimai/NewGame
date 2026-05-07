@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xxd \"D:/BaiduNetdiskDownload/三国志5威力加强版/game/games/SAN5PK/NBDATA.S5\")",
+      "Bash(xxd \"D:/BaiduNetdiskDownload/三国志5威力加强版/game/games/SAN5PK/NIDATA.S5\")",
+      "WebSearch",
+      "WebFetch(domain:www.kangehao.com)",
+      "Bash(xxd \"D:/BaiduNetdiskDownload/三国志5威力加强版/game/games/SAN5PK/HEXMAP.S5\")",
+      "Bash(xxd -l 512 \"D:/BaiduNetdiskDownload/三国志5威力加强版/game/games/SAN5PK/HEXMAP.S5\")",
+      "Bash(xxd -s 0x08a7 -l 128 \"D:/BaiduNetdiskDownload/三国志5威力加强版/game/games/SAN5PK/HEXMAP.S5\")",
+      "Bash(xxd -s 0x07b0 -l 128 \"D:/BaiduNetdiskDownload/三国志5威力加强版/game/games/SAN5PK/HEXMAP.S5\")",
+      "Read(//usr/**)",
+      "Bash(ls /c/Python*/python.exe)",
+      "Read(//c/Users/**)",
+      "Bash(/c/Python312/python -c \"print\\('hello'\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(python3 -c ' *)",
+      "Bash(Get-ChildItem -Recurse -Filter \"*.gd\")",
+      "Bash(Select-Object FullName)"
+    ]
+  }
+}

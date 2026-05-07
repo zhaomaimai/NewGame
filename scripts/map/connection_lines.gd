@@ -1,5 +1,5 @@
-# version: C2_v9
-# last_modified_cycle: C2
+# version: C3_v1
+# last_modified_cycle: C3
 # Connection lines between cities.
 # Supports hand-drawn-style Catmull-Rom splines through waypoints.
 # Falls back to wobbly straight line when no waypoints exist.
@@ -11,7 +11,8 @@ var _last_hash := 0
 
 func _process(_delta: float) -> void:
 	var cities = GameState.get_data("city.list", [])
-	var h := _array_hash(cities)
+	var sel: int = GameState.get_data("city.selected", -1)
+	var h: int = _array_hash(cities) * 31 + sel
 	if h != _last_hash:
 		_last_hash = h
 		queue_redraw()
@@ -51,6 +52,25 @@ func _draw() -> void:
 			var waypoints := _get_waypoints(c, cid, cid2)
 			if waypoints and waypoints.size() > 0:
 				_draw_curved_line(p1, p2, waypoints, color, pk)
+
+	# Highlight selected city connections
+	var selected_id = GameState.get_data("city.selected", -1)
+	if selected_id >= 0 and cmap.has(selected_id):
+		var sel = cmap[selected_id]
+		if sel.has("connections"):
+			var p1 := Vector2(float(sel.x), float(sel.y) - 30.0)
+			for conn_id in sel.connections:
+				var cid2 := int(conn_id)
+				if not cmap.has(cid2):
+					continue
+				var tc = cmap[cid2]
+				var p2 := Vector2(float(tc.x), float(tc.y) - 30.0)
+				var waypoints := _get_waypoints(sel, selected_id, cid2)
+				var hl_color := Color(1, 0.6, 0, 0.9)
+				if waypoints and waypoints.size() > 0:
+					_draw_curved_line(p1, p2, waypoints, hl_color, selected_id * 100 + cid2)
+				else:
+					draw_line(p1, p2, hl_color, 3.0, true)
 
 
 # ── waypoint lookup ───────────────────────────────────────────────
