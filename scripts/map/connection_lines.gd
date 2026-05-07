@@ -75,7 +75,7 @@ func _draw() -> void:
 
 # ── waypoint lookup ───────────────────────────────────────────────
 
-func _get_waypoints(city: Dictionary, cid: int, target_id: int) -> Array:
+func _get_waypoints(city: Dictionary, _cid: int, target_id: int) -> Array:
 	if city.has("route_paths"):
 		var rp = city["route_paths"]
 		if rp is Dictionary and rp.has(str(target_id)):
@@ -87,7 +87,7 @@ func _get_waypoints(city: Dictionary, cid: int, target_id: int) -> Array:
 
 # ── Catmull-Rom curved line with waypoints ────────────────────────
 
-func _draw_curved_line(from: Vector2, to: Vector2, waypoints: Array, color: Color, seed: int) -> void:
+func _draw_curved_line(from: Vector2, to: Vector2, waypoints: Array, color: Color, _seed: int) -> void:
 	# Build full point list: from → waypoints → to
 	var raw_pts := [from]
 	for wp in waypoints:
@@ -121,7 +121,7 @@ func _draw_curved_line(from: Vector2, to: Vector2, waypoints: Array, color: Colo
 		var dir := (next_n - prev).normalized()
 		var perp := Vector2(-dir.y, dir.x)
 		var ease := sin(t * PI) * 1.2
-		var offset := _noise_1d(seed + i, t * 1000.0) * ease * 1.5
+		var offset := _noise_1d(_seed + i, t * 1000.0) * ease * 1.5
 		p += perp * offset
 		wobbly[i] = p
 
@@ -144,8 +144,8 @@ func _catmull_rom(p0: Vector2, p1: Vector2, p2: Vector2, p3: Vector2, t: float) 
 
 # ── deterministic noise ───────────────────────────────────────────
 
-func _noise_1d(seed: int, x: float) -> float:
-	var h := seed * 374761393 + int(x) * 668265263
+func _noise_1d(s: int, x: float) -> float:
+	var h := s * 374761393 + int(x) * 668265263
 	h = (h ^ (h >> 13)) * 1274126177
 	h = (h ^ (h >> 16))
 	return (h & 0x7FFFFFFF) / float(0x7FFFFFFF) * 2.0 - 1.0

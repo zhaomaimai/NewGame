@@ -6,7 +6,18 @@
       "Bash(ls -la scripts/turn/)",
       "Bash(ls -la scripts/city/)",
       "Bash(ls -la scenes/ui/)",
-      "Bash(ls -la scripts/main/)"
+      "Bash(ls -la scripts/main/)",
+      "Bash(python update_cities_c4.py)",
+      "Bash(cd \"d:/BaiduNetdiskDownload/三国志5威力加强版/NewGame\" && which godot 2>/dev/null || which godot4 2>/dev/null || ls \"C:/Program Files/\" | grep -i godot 2>/dev/null || echo \"No godot found in PATH\")",
+      "Read(//c/Program Files/**)",
+      "Bash(find /c/ -maxdepth 3 -name \"godot*\" -o -name \"Godot*\" 2>/dev/null | head -10; find /d/ -maxdepth 3 -name \"godot*\" -o -name \"Godot*\" 2>/dev/null | head -10)",
+      "Read(//c//**)",
+      "Read(//d//**)",
+      "Bash(\"/d/Compressed/Godot/Godot_v4.6.2-stable_win64_console.exe\" --headless --check-only)",
+      "Bash(taskkill /f /im Godot_v4.6.2-stable_win64_console.exe)",
+      "Bash(exit 0)",
+      "Bash(\"/d/Compressed/Godot/Godot_v4.6.2-stable_win64_console.exe\" --version)",
+      "Bash(git checkout *)"
     ]
   }
 }

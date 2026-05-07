@@ -36,6 +36,8 @@ var _rename_input: LineEdit = null
 var _renaming_id := -1
 var _feedback_label: Label = null
 var _feedback_timer: float = 0.0
+var _tb_dragging := false
+var _tb_drag_offset := Vector2.ZERO
 
 const CITY2_H := 60.0
 const MARKER_W := 100.0
@@ -67,6 +69,7 @@ func _build_toolbar() -> void:
 	_toolbar.position = Vector2(10, 10)
 	_toolbar.size = Vector2(710, 56)
 	_toolbar.mouse_filter = MOUSE_FILTER_STOP
+	_toolbar.visible = false  # hidden until edit mode
 	add_child(_toolbar)
 
 	# Toggle edit
@@ -76,6 +79,7 @@ func _build_toolbar() -> void:
 	_toggle_btn.size = Vector2(90, 24)
 	_toggle_btn.pressed.connect(_toggle_edit)
 	_toolbar.add_child(_toggle_btn)
+	_toolbar.gui_input.connect(_on_toolbar_gui_input)
 
 	# Mode buttons
 	var mode_data := [
@@ -172,6 +176,7 @@ func _build_rename_panel() -> void:
 func _toggle_edit() -> void:
 	edit_mode = !edit_mode
 	_toggle_btn.text = "[E] 编辑: 开" if edit_mode else "[E] 编辑: 关"
+	_toolbar.visible = edit_mode
 	if not edit_mode:
 		if _drawing:
 			_cancel_draw()
@@ -657,6 +662,21 @@ func _on_rename_cancel() -> void:
 
 # ── route (draw path) ──────────────────────────────────────────
 
+func _on_toolbar_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			_tb_dragging = true
+			_tb_drag_offset = get_global_mouse_position() - _toolbar.position
+		else:
+			_tb_dragging = false
+			get_viewport().set_input_as_handled()
+			return
+	if event is InputEventMouseMotion and _tb_dragging:
+		var new_pos := get_global_mouse_position() - _tb_drag_offset
+		new_pos.x = maxi(0, new_pos.x)
+		new_pos.y = maxi(0, new_pos.y)
+		_toolbar.position = new_pos
+
 func _route_city_clicked(city_id: int) -> void:
 	if _route_city_id < 0:
 		# First click: select city
@@ -977,7 +997,7 @@ func _save_json() -> void:
 
 
 func _reload_json() -> void:
-	var paths := ["res://data/cities_custom.json", "res://data/cities.json"]
+	var paths := ["res://data/cities_custom.json"]
 	var file: FileAccess = null
 	var used := ""
 	for p in paths:

@@ -1,0 +1,39 @@
+  ERROR: res://scripts/turn/turn_manager.gd:53 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/turn_manager.gd:79 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/turn_manager.gd:81 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/turn_manager.gd:83 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/turn_manager.gd:94 - Parse Error: Cannot infer the type of "month" variable because the value doesn't have a set type.
+  ERROR: res://scripts/turn/turn_manager.gd:141 - Parse Error: Cannot infer the type of "month" variable because the value doesn't have a set type.
+  ERROR: res://scripts/turn/test_turn.gd:47 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/test_turn.gd:52 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/test_turn.gd:55 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/test_turn.gd:58 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/test_turn.gd:61 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/test_turn.gd:64 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/test_turn.gd:68 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/main/main.gd:0 - Compile Error: Failed to compile depended scripts.
+  ERROR: modules/gdscript/gdscript.cpp:2907 - Failed to load script "res://scripts/main/main.gd" with error "Parse error".
+  ERROR: res://scripts/turn/test_turn.gd:47 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/test_turn.gd:52 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/test_turn.gd:55 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/test_turn.gd:58 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/test_turn.gd:61 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/test_turn.gd:64 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/test_turn.gd:68 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: modules/gdscript/gdscript.cpp:2907 - Failed to load script "res://scripts/turn/test_turn.gd" with error "Parse error".
+  ERROR: res://scripts/turn/turn_manager.gd:53 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/turn_manager.gd:79 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/turn_manager.gd:81 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/turn_manager.gd:83 - Parse Error: Identifier "PhaseManager" not declared in the current scope.
+  ERROR: res://scripts/turn/turn_manager.gd:94 - Parse Error: Cannot infer the type of "month" variable because the value doesn't have a set type.
+  ERROR: res://scripts/turn/turn_manager.gd:141 - Parse Error: Cannot infer the type of "month" variable because the value doesn't have a set type.
+  ERROR: modules/gdscript/gdscript.cpp:2907 - Failed to load script "res://scripts/turn/turn_manager.gd" with error "Parse error".
+W 0:00:01:224   GDScript::reload: The function "print_dbg()" is a static function but was called from an instance. Instead, it should be directly called from the type: "res://scripts/core/debug_system.gd.print_dbg()".
+  <GDScript 错误> STATIC_CALLED_ON_INSTANCE
+  <GDScript 源文件>game_state.gd:30 @ GDScript::reload()
+W 0:00:01:326   GDScript::reload: The parameter "cid" is never used in the function "_get_waypoints()". If this is intended, prefix it with an underscore: "_cid".
+  <GDScript 错误> UNUSED_PARAMETER
+  <GDScript 源文件>connection_lines.gd:78 @ GDScript::reload()
+W 0:00:01:326   GDScript::reload: The function parameter "seed" has the same name as a built-in function.
+  <GDScript 错误> SHADOWED_GLOBAL_IDENTIFIER
+  <GDScript 源文件>connection_lines.gd:90 @ GDScript::reload()

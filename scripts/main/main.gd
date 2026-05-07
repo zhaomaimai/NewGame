@@ -1,16 +1,35 @@
-# version: C3_v1
-# last_modified_cycle: C3
+# version: C4_v1
+# last_modified_cycle: C4
+# ═══════════════════════════════════════════════════════════════════
+# Main — 游戏主入口
+# ═══════════════════════════════════════════════════════════════════
+# 启动时完成：
+#   1. 加载城市数据（cities_custom.json 优先，cities.json 备用）
+#   2. 创建 MapView（地图 + 城市标记 + 编辑器）
+#   3. 创建 CityManager（城市选中逻辑）
+#   4. 创建 CityInfoPanel（城市信息面板）
+#   5. 创建 TurnManager + TurnIndicator + EndTurnButton（回合系统）
+#   6. 注册测试到 TestRunner
+# ═══════════════════════════════════════════════════════════════════
 
+# ═══════════════════════════════════════════════════════════════════
 extends Node
+
+# ── 预加载资源路径 ──
 
 var _city_manager: Node = null
 var _city_info_panel: Control = null
 var _map_view: Control = null
 var _last_edit_mode := false
 
+# C4: Turn system
+var _turn_manager: Node = null
+var _turn_indicator: Control = null
+var _end_turn_btn: Button = null
+
 
 func _ready():
-	var paths := ["res://data/cities_custom.json", "res://data/cities.json"]
+	var paths := ["res://data/cities_custom.json"]
 	var file: FileAccess = null
 	var used_path := ""
 	for p in paths:
@@ -36,7 +55,7 @@ func _ready():
 					lines_file.close()
 				DebugSystem.print_dbg("[MAIN] loaded cities=%d from %s" % [data["cities"].size(), used_path])
 			else:
-				DebugSystem.print_dbg("[MAIN] ERROR: cities.json missing 'cities' key")
+				DebugSystem.print_dbg("[MAIN] ERROR: cities_custom.json missing 'cities' key")
 		else:
 			DebugSystem.print_dbg("[MAIN] ERROR: invalid cities.json")
 		file.close()
@@ -70,6 +89,29 @@ func _ready():
 
 	# C3: Register city tests
 	preload("res://scripts/city/test_city.gd").register_tests()
+
+	# C4: Initialize turn system
+	_turn_manager = preload("res://scripts/turn/turn_manager.gd").new()
+	_turn_manager.name = "TurnManager"
+	add_child(_turn_manager)
+
+	# C4: Create TurnIndicator (top-left)
+	_turn_indicator = preload("res://scenes/ui/turn_indicator.tscn").instantiate()
+	add_child(_turn_indicator)
+	_turn_indicator.update_date(_turn_manager.date_manager.get_date_string())
+	_turn_indicator.update_phase(_turn_manager.phase_manager.get_phase_name())
+
+	# C4: Create EndTurnButton (bottom-right)
+	_end_turn_btn = preload("res://scenes/ui/end_turn_button.tscn").instantiate()
+	add_child(_end_turn_btn)
+
+	# C4: Wire turn manager to UI
+	_turn_manager.turn_indicator = _turn_indicator
+	_turn_manager.end_turn_button = _end_turn_btn
+	_end_turn_btn.end_turn_pressed.connect(_on_end_turn_pressed)
+
+	# C4: Register turn tests
+	preload("res://scripts/turn/test_turn.gd").register_tests()
 
 	_last_edit_mode = _map_view.city_editor.edit_mode
 
@@ -132,3 +174,8 @@ func _update_marker_highlights(selected_id: int) -> void:
 		if ch.has_method("set_selected"):
 			var cid := int(ch.get_city_data().id)
 			ch.set_selected(cid == selected_id)
+
+
+# C4: End turn button pressed → start end-turn flow
+func _on_end_turn_pressed() -> void:
+	_turn_manager.start_end_turn_flow()

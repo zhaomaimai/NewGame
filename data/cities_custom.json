@@ -1,6 +1,8 @@
 {
 	"cities": [
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				11.0,
 				5.0,
@@ -9,12 +11,22 @@
 				15.0
 			],
 			"defense": 500.0,
+			"faction": 0.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 1.0,
+			"morale": 70.0,
 			"name": "洛阳",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "何进",
+			"soldiers": 5000.0,
 			"x": 599.0,
 			"y": 411.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				1.0,
 				3.0,
@@ -22,12 +34,22 @@
 				15.0
 			],
 			"defense": 500.0,
+			"faction": 0.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 2.0,
+			"morale": 70.0,
 			"name": "许昌",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "何进",
+			"soldiers": 5000.0,
 			"x": 714.0,
 			"y": 474.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				2.0,
 				13.0,
@@ -35,12 +57,22 @@
 				23.0
 			],
 			"defense": 500.0,
+			"faction": 0.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 3.0,
+			"morale": 70.0,
 			"name": "陈留",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "何进",
+			"soldiers": 5000.0,
 			"x": 802.0,
 			"y": 468.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				28.0,
 				66.0,
@@ -48,12 +80,22 @@
 				5.0
 			],
 			"defense": 500.0,
+			"faction": 0.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 4.0,
+			"morale": 70.0,
 			"name": "长安",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "何进",
+			"soldiers": 5000.0,
 			"x": 408.0,
 			"y": 392.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				6.0,
 				4.0,
@@ -61,48 +103,88 @@
 				16.0
 			],
 			"defense": 500.0,
+			"faction": 0.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 5.0,
+			"morale": 70.0,
 			"name": "宛",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "何进",
+			"soldiers": 5000.0,
 			"x": 612.0,
 			"y": 493.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				12.0,
 				5.0,
 				40.0
 			],
 			"defense": 500.0,
+			"faction": 4.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 6.0,
+			"morale": 70.0,
 			"name": "新野",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘表",
+			"soldiers": 5000.0,
 			"x": 541.0,
 			"y": 552.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				8.0,
 				1.0,
 				15.0
 			],
 			"defense": 500.0,
+			"faction": 1.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 7.0,
+			"morale": 70.0,
 			"name": "晋阳",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "张燕",
+			"soldiers": 5000.0,
 			"x": 648.0,
 			"y": 274.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				63.0,
 				7.0,
 				62.0
 			],
 			"defense": 500.0,
+			"faction": 1.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 8.0,
+			"morale": 70.0,
 			"name": "代县",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "张角",
+			"soldiers": 5000.0,
 			"x": 739.0,
 			"y": 201.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				3.0,
 				23.0,
@@ -111,35 +193,65 @@
 				60.0
 			],
 			"defense": 500.0,
+			"faction": 1.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 9.0,
+			"morale": 70.0,
 			"name": "濮阳",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "张角",
+			"soldiers": 5000.0,
 			"x": 945.0,
 			"y": 424.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				58.0,
 				19.0,
 				18.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 10.0,
+			"morale": 70.0,
 			"name": "小沛",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 1000.0,
 			"y": 578.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				4.0,
 				1.0
 			],
 			"defense": 500.0,
+			"faction": 0.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 11.0,
+			"morale": 70.0,
 			"name": "弘农",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "何进",
+			"soldiers": 5000.0,
 			"x": 507.0,
 			"y": 382.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				53.0,
 				28.0,
@@ -147,12 +259,22 @@
 				43.0
 			],
 			"defense": 500.0,
+			"faction": 4.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 12.0,
+			"morale": 70.0,
 			"name": "上庸",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘表",
+			"soldiers": 5000.0,
 			"x": 425.0,
 			"y": 538.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				16.0,
 				2.0,
@@ -160,24 +282,44 @@
 				18.0
 			],
 			"defense": 500.0,
+			"faction": 0.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 13.0,
+			"morale": 70.0,
 			"name": "谯",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "何进",
+			"soldiers": 5000.0,
 			"x": 847.0,
 			"y": 536.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				40.0,
 				22.0,
 				21.0
 			],
 			"defense": 500.0,
+			"faction": 4.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 14.0,
+			"morale": 70.0,
 			"name": "襄阳",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘表",
+			"soldiers": 5000.0,
 			"x": 656.0,
 			"y": 644.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				7.0,
 				2.0,
@@ -186,35 +328,65 @@
 				62.0
 			],
 			"defense": 500.0,
+			"faction": 1.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 15.0,
+			"morale": 70.0,
 			"name": "邺",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "张角",
+			"soldiers": 5000.0,
 			"x": 720.0,
 			"y": 376.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				17.0,
 				5.0,
 				13.0
 			],
 			"defense": 500.0,
+			"faction": 0.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 16.0,
+			"morale": 70.0,
 			"name": "汝南",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "何进",
+			"soldiers": 5000.0,
 			"x": 728.0,
 			"y": 571.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				58.0,
 				16.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 17.0,
+			"morale": 70.0,
 			"name": "寿春",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 813.0,
 			"y": 602.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				13.0,
 				10.0,
@@ -222,12 +394,22 @@
 				9.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 18.0,
+			"morale": 70.0,
 			"name": "徐州",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 966.0,
 			"y": 512.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				25.0,
 				59.0,
@@ -235,23 +417,43 @@
 				60.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 19.0,
+			"morale": 70.0,
 			"name": "下邳",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 1077.0,
 			"y": 594.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				32.0,
 				39.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 20.0,
+			"morale": 70.0,
 			"name": "剑阁",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 161.0,
 			"y": 489.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				14.0,
 				30.0,
@@ -259,12 +461,22 @@
 				55.0
 			],
 			"defense": 500.0,
+			"faction": 4.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 21.0,
+			"morale": 70.0,
 			"name": "江夏",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘表",
+			"soldiers": 5000.0,
 			"x": 720.0,
 			"y": 698.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				52.0,
 				14.0,
@@ -273,12 +485,22 @@
 				21.0
 			],
 			"defense": 500.0,
+			"faction": 4.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 22.0,
+			"morale": 70.0,
 			"name": "江陵",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘表",
+			"soldiers": 5000.0,
 			"x": 609.0,
 			"y": 689.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				62.0,
 				3.0,
@@ -287,12 +509,22 @@
 				24.0
 			],
 			"defense": 500.0,
+			"faction": 1.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 23.0,
+			"morale": 70.0,
 			"name": "平原",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "张角",
+			"soldiers": 5000.0,
 			"x": 826.0,
 			"y": 362.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				31.0,
 				63.0,
@@ -300,12 +532,22 @@
 				23.0
 			],
 			"defense": 500.0,
+			"faction": 1.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 24.0,
+			"morale": 70.0,
 			"name": "南皮",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "张角",
+			"soldiers": 5000.0,
 			"x": 957.0,
 			"y": 293.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				55.0,
 				29.0,
@@ -315,37 +557,67 @@
 				19.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 25.0,
+			"morale": 70.0,
 			"name": "建业",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 1026.0,
 			"y": 691.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				25.0,
 				35.0,
-				27
+				27.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 26.0,
+			"morale": 70.0,
 			"name": "吴",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 1182.0,
 			"y": 733.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				25.0,
 				35.0,
 				29.0,
-				26
+				26.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 27.0,
+			"morale": 70.0,
 			"name": "建安",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 1057.0,
 			"y": 819.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				39.0,
 				41.0,
@@ -354,23 +626,43 @@
 				12.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 28.0,
+			"morale": 70.0,
 			"name": "汉中",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 308.0,
 			"y": 377.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				25.0,
 				27.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 29.0,
+			"morale": 70.0,
 			"name": "柴桑",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 938.0,
 			"y": 792.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				22.0,
 				50.0,
@@ -380,90 +672,170 @@
 				21.0
 			],
 			"defense": 500.0,
+			"faction": 4.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 30.0,
+			"morale": 70.0,
 			"name": "长沙",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘表",
+			"soldiers": 5000.0,
 			"x": 665.0,
 			"y": 777.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				42.0,
 				24.0,
 				9.0
 			],
 			"defense": 500.0,
+			"faction": 1.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 31.0,
+			"morale": 70.0,
 			"name": "北海",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "张角",
+			"soldiers": 5000.0,
 			"x": 1030.0,
 			"y": 358.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				45.0,
 				20.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 32.0,
+			"morale": 70.0,
 			"name": "梓潼",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 157.0,
 			"y": 573.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				37.0,
 				38.0,
 				45.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 33.0,
+			"morale": 70.0,
 			"name": "成都",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 106.0,
 			"y": 676.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				55.0,
 				57.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 34.0,
+			"morale": 70.0,
 			"name": "豫章",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 833.0,
 			"y": 793.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				26.0,
 				27.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 35.0,
+			"morale": 70.0,
 			"name": "会稽",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 1175.0,
 			"y": 868.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				61.0
 			],
 			"defense": 500.0,
+			"faction": 1.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 36.0,
+			"morale": 70.0,
 			"name": "襄平",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "张角",
+			"soldiers": 5000.0,
 			"x": 1241.0,
 			"y": 159.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				44.0,
 				33.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 37.0,
+			"morale": 70.0,
 			"name": "建宁",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 137.0,
 			"y": 776.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				33.0,
 				46.0,
@@ -472,101 +844,191 @@
 				43.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 38.0,
+			"morale": 70.0,
 			"name": "江州",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 226.0,
 			"y": 660.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				20.0,
 				28.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 39.0,
+			"morale": 70.0,
 			"name": "武关",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 192.0,
 			"y": 413.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				6.0,
 				14.0
 			],
 			"defense": 500.0,
+			"faction": 4.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 40.0,
+			"morale": 70.0,
 			"name": "樊城",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘表",
+			"soldiers": 5000.0,
 			"x": 601.0,
 			"y": 598.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				28.0,
 				64.0,
 				64.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 41.0,
+			"morale": 70.0,
 			"name": "下弁",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 183.0,
 			"y": 329.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				60.0,
 				31.0
 			],
 			"defense": 500.0,
+			"faction": 1.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 42.0,
+			"morale": 70.0,
 			"name": "琅琊",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "张角",
+			"soldiers": 5000.0,
 			"x": 1123.0,
 			"y": 376.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				38.0,
 				52.0,
 				12.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 43.0,
+			"morale": 70.0,
 			"name": "永安",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 359.0,
 			"y": 633.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				37.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 44.0,
+			"morale": 70.0,
 			"name": "云南",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 148.0,
 			"y": 884.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				33.0,
 				32.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 45.0,
+			"morale": 70.0,
 			"name": "绵竹关",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 87.0,
 			"y": 590.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				38.0,
 				53.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 46.0,
+			"morale": 70.0,
 			"name": "巴",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 251.0,
 			"y": 552.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				38.0,
 				54.0,
@@ -574,12 +1036,22 @@
 				51.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 47.0,
+			"morale": 70.0,
 			"name": "兴古",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 317.0,
 			"y": 716.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				52.0,
 				22.0,
@@ -587,139 +1059,259 @@
 				30.0
 			],
 			"defense": 500.0,
+			"faction": 4.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 48.0,
+			"morale": 70.0,
 			"name": "武陵",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘表",
+			"soldiers": 5000.0,
 			"x": 514.0,
 			"y": 736.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				56.0,
 				50.0,
 				30.0
 			],
 			"defense": 500.0,
+			"faction": 4.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 49.0,
+			"morale": 70.0,
 			"name": "零陵",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘表",
+			"soldiers": 5000.0,
 			"x": 603.0,
 			"y": 882.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				30.0,
 				49.0
 			],
 			"defense": 500.0,
+			"faction": 4.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 50.0,
+			"morale": 70.0,
 			"name": "桂阳",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘表",
+			"soldiers": 5000.0,
 			"x": 689.0,
 			"y": 902.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				47.0,
 				54.0,
 				47.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 51.0,
+			"morale": 70.0,
 			"name": "牂柯",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 376.0,
 			"y": 815.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				43.0,
 				22.0,
 				48.0
 			],
 			"defense": 500.0,
+			"faction": 4.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 52.0,
+			"morale": 70.0,
 			"name": "涪陵",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘表",
+			"soldiers": 5000.0,
 			"x": 482.0,
 			"y": 616.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				46.0,
 				12.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 53.0,
+			"morale": 70.0,
 			"name": "绥定",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 325.0,
 			"y": 496.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				38.0,
 				47.0,
 				51.0
 			],
 			"defense": 500.0,
+			"faction": 2.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 54.0,
+			"morale": 70.0,
 			"name": "交洲",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘焉",
+			"soldiers": 5000.0,
 			"x": 247.0,
 			"y": 794.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				21.0,
 				34.0,
 				25.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 55.0,
+			"morale": 70.0,
 			"name": "庐江",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 852.0,
 			"y": 700.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				48.0,
 				49.0,
 				30.0
 			],
 			"defense": 500.0,
+			"faction": 4.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 56.0,
+			"morale": 70.0,
 			"name": "桂林",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "刘表",
+			"soldiers": 5000.0,
 			"x": 535.0,
 			"y": 823.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				34.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 57.0,
+			"morale": 70.0,
 			"name": "庐陵",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 823.0,
 			"y": 886.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				25.0,
 				17.0,
 				10.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 58.0,
+			"morale": 70.0,
 			"name": "合肥",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 920.0,
 			"y": 628.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				19.0,
 				60.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 59.0,
+			"morale": 70.0,
 			"name": "广陵",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 1184.0,
 			"y": 600.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				19.0,
 				59.0,
@@ -728,23 +1320,43 @@
 				9.0
 			],
 			"defense": 500.0,
+			"faction": 3.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 60.0,
+			"morale": 70.0,
 			"name": "淮阴",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "孙坚",
+			"soldiers": 5000.0,
 			"x": 1076.0,
 			"y": 492.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				63.0,
 				36.0
 			],
 			"defense": 500.0,
+			"faction": 1.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 61.0,
+			"morale": 70.0,
 			"name": "北平",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "张角",
+			"soldiers": 5000.0,
 			"x": 1085.0,
 			"y": 133.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				63.0,
 				8.0,
@@ -753,12 +1365,22 @@
 				15.0
 			],
 			"defense": 500.0,
+			"faction": 1.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 62.0,
+			"morale": 70.0,
 			"name": "信都",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "张角",
+			"soldiers": 5000.0,
 			"x": 801.0,
 			"y": 284.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				24.0,
 				61.0,
@@ -766,12 +1388,22 @@
 				62.0
 			],
 			"defense": 500.0,
+			"faction": 1.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 63.0,
+			"morale": 70.0,
 			"name": "范阳",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "张角",
+			"soldiers": 5000.0,
 			"x": 889.0,
 			"y": 184.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				41.0,
 				65.0,
@@ -780,22 +1412,42 @@
 				66.0
 			],
 			"defense": 500.0,
+			"faction": 5.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 64.0,
+			"morale": 70.0,
 			"name": "天水",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "马腾",
+			"soldiers": 5000.0,
 			"x": 159.0,
 			"y": 245.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				64.0
 			],
 			"defense": 500.0,
+			"faction": 5.0,
+			"food": 3000.0,
+			"gold": 1000.0,
 			"id": 65.0,
+			"morale": 70.0,
 			"name": "西凉",
+			"population": 50000.0,
+			"public_order": 65.0,
+			"ruler": "马腾",
+			"soldiers": 5000.0,
 			"x": 136.0,
 			"y": 131.0
 		},
 		{
+			"agriculture": 80.0,
+			"commerce": 80.0,
 			"connections": [
 				64.0,
 				28.0,
@@ -803,11 +1455,15 @@
 				64.0
 			],
 			"defense": 500,
+			"faction": 5.0,
 			"food": 3000,
 			"gold": 1000,
 			"id": 66.0,
+			"morale": 70.0,
 			"name": "安定",
 			"population": 50000,
+			"public_order": 65.0,
+			"ruler": "马腾",
 			"soldiers": 5000,
 			"x": 344.0,
 			"y": 267.0

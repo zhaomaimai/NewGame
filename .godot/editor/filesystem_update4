@@ -1,5 +1,0 @@
-res://scripts/map/connection_lines.gd
-res://data/cities_custom.json
-res://scripts/main/main.gd
-res://scripts/ui/city_info_panel.gd
-res://data/drawn_lines.json

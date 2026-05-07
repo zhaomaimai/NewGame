@@ -1,18 +1,39 @@
 # version: C3_v2
-# last_modified_cycle: C3
-# City info panel — draggable, editable city data.
+# last_modified_cycle: C4
+# ═══════════════════════════════════════════════════════════════════
+# CityInfoPanel — 城市信息面板（可拖拽编辑）
+# ═══════════════════════════════════════════════════════════════════
+# 功能：
+#   - 点击城市时弹出，显示城市详细信息
+#   - 显示：名称、坐标、势力、人口、金、粮、士兵、防御
+#   - SpinBox 支持实时编辑数值
+#   - 可拖拽移动位置
+#   - "保存到文件"按钮将修改写回 cities_custom.json
+# ═══════════════════════════════════════════════════════════════════
+# 信号：save_requested(city_id) — 保存按钮点击时发射
+#       close_requested() — 关闭按钮点击时发射
+# ═══════════════════════════════════════════════════════════════════
 
 extends Panel
 
+## 保存按钮信号：触发写入 cities_custom.json
 signal save_requested(city_id: int)
+## 关闭面板信号：通知 main.gd 取消选中
 signal close_requested()
 
+## 当前正在显示的城市数据副本
 var _city_data: Dictionary = {}
+## ── 拖动控制 ──
 var _dragging := false
 var _drag_offset := Vector2.ZERO
 
+## 城市名称标签
 var _name_label: Label
+## 势力信息标签（显示"势力：刘焉 · 刘焉"）
+var _faction_label: Label
+## 坐标信息标签
 var _coord_label: Label
+## 数值编辑 SpinBox 字典（键=字段名, 值=SpinBox）
 var _spins: Dictionary = {}
 
 
@@ -70,6 +91,14 @@ func _build_ui():
 	_coord_label = Label.new()
 	vbox.add_child(_coord_label)
 
+	_faction_label = Label.new()
+	_faction_label.add_theme_color_override("font_color", Color(0.6, 0.8, 1))
+	vbox.add_child(_faction_label)
+
+	_faction_label = Label.new()
+	_faction_label.add_theme_color_override("font_color", Color(0.6, 0.8, 1))
+	vbox.add_child(_faction_label)
+
 	_add_spin(vbox, "人口:", "population", 0, 999999, 100)
 	_add_spin(vbox, "金:", "gold", 0, 999999, 100)
 	_add_spin(vbox, "粮:", "food", 0, 999999, 100)
@@ -123,6 +152,11 @@ func show_city(data: Dictionary) -> void:
 	_city_data = data
 	_name_label.text = str(data.get("name", ""))
 	_coord_label.text = "坐标: (%d, %d)" % [int(data.get("x", 0)), int(data.get("y", 0))]
+	var fid := int(data.get("faction", -1))
+	var ruler := str(data.get("ruler", ""))
+	var faction_names = {0: "汉室", 1: "黄巾", 2: "刘焉", 3: "孙坚", 4: "刘表", 5: "马腾"}
+	var fname: String = faction_names.get(fid, "未知")
+	_faction_label.text = "势力: %s · %s" % [fname, ruler]
 	_set_spin("population", data.get("population", 50000))
 	_set_spin("gold", data.get("gold", 1000))
 	_set_spin("food", data.get("food", 3000))
