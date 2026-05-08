@@ -61,6 +61,9 @@ func get_phase_name() -> String:
 
 func advance_phase() -> void:
 	current_phase += 1
+	# Skip MILITARY(1) and MARCH(2) — not yet implemented
+	if current_phase == Phase.MILITARY or current_phase == Phase.MARCH:
+		current_phase = Phase.SETTLEMENT
 	if current_phase > Phase.TURN_END:
 		current_phase = Phase.INTERNAL
 

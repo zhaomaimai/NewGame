@@ -1,0 +1,274 @@
+# version: C5_v1
+# last_modified_cycle: C5
+# ═══════════════════════════════════════════════════════════════════
+# InternalPanel — 内政指令面板
+# ═══════════════════════════════════════════════════════════════════
+# 功能：
+#   - 显示当前城市的农业/商业/治安/训练等数值
+#   - 6个指令按钮 + 剩余次数显示
+#   - "内政完了"按钮推进到下一阶段
+# ═══════════════════════════════════════════════════════════════════
+# 信号：
+#   internal_done()  — 内政完了按钮点击时发射
+# ═══════════════════════════════════════════════════════════════════
+
+extends Panel
+
+signal internal_done()
+
+var _city_data: Dictionary = {}
+var _internal_mgr: Node = null
+var _val_labels: Dictionary = {}  # 字段名 → Label
+var _remain_label: Label
+var _btn_group: VBoxContainer
+var _cmd_btns: Dictionary = {}    # 指令类型 → Button
+var _feedback_label: Label
+var _feedback_timer: float = 0.0
+
+## ── 拖动 ──
+var _dragging := false
+var _drag_offset := Vector2.ZERO
+
+const CMD_INFO := {
+	"agriculture": {"label": "農業開發", "icon": "🌾"},
+	"commerce":    {"label": "商業開發", "icon": "💰"},
+	"security":    {"label": "治安向上", "icon": "🛡"},
+	"recruit":     {"label": "兵士徴募", "icon": "⚔"},
+	"train":       {"label": "兵士訓練", "icon": "🏋"},
+	"trade":       {"label": "食糧売買", "icon": "📦"},
+}
+
+
+func _ready() -> void:
+	size = Vector2(240, 420)
+	position = Vector2(720, 10)
+	visible = false
+	_build_ui()
+
+
+func _build_ui() -> void:
+	# 背景
+	var bg := ColorRect.new()
+	bg.color = Color(0.15, 0.2, 0.25, 0.92)
+	bg.size = Vector2(240, 420)
+	add_child(bg)
+
+	# 标题栏（可拖动）
+	var handle := ColorRect.new()
+	handle.color = Color(0.12, 0.12, 0.2, 0.95)
+	handle.size = Vector2(240, 28)
+	handle.position = Vector2(0, 0)
+	add_child(handle)
+
+	var title := Label.new()
+	title.text = "内政指令"
+	title.position = Vector2(8, 4)
+	title.size = Vector2(224, 20)
+	title.add_theme_font_size_override("font_size", 18)
+	title.add_theme_color_override("font_color", Color(0.6, 0.9, 1))
+	handle.add_child(title)
+
+	handle.gui_input.connect(_on_handle_gui_input)
+
+	# 分隔线
+	var sep := HSeparator.new()
+	sep.position = Vector2(8, 32)
+	sep.size = Vector2(224, 4)
+	add_child(sep)
+
+	# 数值显示区域
+	var val_pos := Vector2(8, 40)
+	var fields := {
+		"agriculture": "农业", "commerce": "商业",
+		"public_order": "治安", "training": "训练",
+		"population": "人口", "soldiers": "士兵",
+		"gold": "金", "food": "粮"
+	}
+	var vy := val_pos.y
+	for field in fields:
+		var lbl := Label.new()
+		lbl.text = "%s: --" % fields[field]
+		lbl.position = Vector2(8, vy)
+		lbl.size = Vector2(110, 18)
+		lbl.add_theme_font_size_override("font_size", 12)
+		lbl.add_theme_color_override("font_color", Color(0.9, 0.9, 0.9))
+		add_child(lbl)
+		_val_labels[field] = lbl
+		vy += 16
+
+	# 分隔线
+	var sep2 := HSeparator.new()
+	sep2.position = Vector2(8, vy + 2)
+	sep2.size = Vector2(224, 4)
+	add_child(sep2)
+	vy += 10
+
+	# 指令按钮区域
+	_btn_group = VBoxContainer.new()
+	_btn_group.position = Vector2(8, vy)
+	_btn_group.size = Vector2(224, 160)
+	add_child(_btn_group)
+
+	for cmd in CMD_INFO:
+		var info = CMD_INFO[cmd]
+		var btn := Button.new()
+		btn.text = "%s %s" % [info.icon, info.label]
+		btn.size_flags_horizontal = Control.SIZE_FILL
+		btn.custom_minimum_size.y = 26
+		btn.pressed.connect(_on_cmd_pressed.bind(cmd))
+		_btn_group.add_child(btn)
+		_cmd_btns[cmd] = btn
+
+	# 剩余次数
+	_remain_label = Label.new()
+	_remain_label.text = "剩余指令: 3/3"
+	_remain_label.position = Vector2(8, vy + 168)
+	_remain_label.size = Vector2(224, 20)
+	_remain_label.add_theme_font_size_override("font_size", 13)
+	_remain_label.add_theme_color_override("font_color", Color(0.6, 1, 0.6))
+	add_child(_remain_label)
+
+	# 反馈文字
+	_feedback_label = Label.new()
+	_feedback_label.position = Vector2(8, vy + 192)
+	_feedback_label.size = Vector2(224, 20)
+	_feedback_label.add_theme_font_size_override("font_size", 12)
+	_feedback_label.add_theme_color_override("font_color", Color(0, 1, 0))
+	add_child(_feedback_label)
+
+	# 内政完了按钮
+	var done_btn := Button.new()
+	done_btn.text = "内政完了"
+	done_btn.position = Vector2(60, vy + 220)
+	done_btn.size = Vector2(120, 32)
+	done_btn.add_theme_font_size_override("font_size", 15)
+	done_btn.pressed.connect(_on_done)
+	add_child(done_btn)
+
+
+func set_internal_manager(mgr: Node) -> void:
+	_internal_mgr = mgr
+
+
+## 显示指定城市的内政面板
+func show_city(city_data: Dictionary) -> void:
+	_city_data = city_data
+	_update_values()
+	_update_buttons()
+	visible = true
+
+
+## 隐藏面板
+func hide_panel() -> void:
+	visible = false
+	_city_data = {}
+	_feedback_label.text = ""
+
+
+## 刷新显示（外部调用，如指令执行后）
+func refresh() -> void:
+	if not _city_data.is_empty():
+		_update_values()
+		_update_buttons()
+
+
+
+
+func _on_handle_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			_dragging = true
+			_drag_offset = get_global_mouse_position() - position
+			move_to_front()
+		else:
+			_dragging = false
+			get_viewport().set_input_as_handled()
+			return
+	if event is InputEventMouseMotion and _dragging:
+		var new_pos := get_global_mouse_position() - _drag_offset
+		new_pos.x = maxi(0, new_pos.x)
+		new_pos.y = maxi(0, new_pos.y)
+		position = new_pos
+
+
+func _update_values() -> void:
+	if _city_data.is_empty():
+		return
+	var fields := ["agriculture", "commerce", "public_order", "training",
+		"population", "soldiers", "gold", "food"]
+	var names := {
+		"agriculture": "农业", "commerce": "商业",
+		"public_order": "治安", "training": "训练",
+		"population": "人口", "soldiers": "士兵",
+		"gold": "金", "food": "粮"
+	}
+	for f in fields:
+		var lbl = _val_labels.get(f)
+		if lbl:
+			var val := int(_city_data.get(f, 0))
+			if f == "population" or f == "gold" or f == "food" or f == "soldiers":
+				lbl.text = "%s: %d" % [names[f], val]
+			else:
+				lbl.text = "%s: %d" % [names[f], val]
+
+
+func _update_buttons() -> void:
+	if _city_data.is_empty():
+		return
+	var remaining := 3
+	if _internal_mgr and _internal_mgr.has_method("get_remaining_commands"):
+		var cid := int(_city_data.get("id", -1))
+		remaining = _internal_mgr.get_remaining_commands(cid)
+
+	_remain_label.text = "剩余指令: %d/3" % remaining
+
+	# 指令按钮状态
+	for cmd in _cmd_btns:
+		var btn = _cmd_btns[cmd]
+		btn.disabled = (remaining <= 0)
+
+
+## 点指令按钮
+func _on_cmd_pressed(cmd_type: String) -> void:
+	if _city_data.is_empty() or not _internal_mgr:
+		return
+	if not _internal_mgr.has_method("execute_command"):
+		return
+
+	var cid := int(_city_data.get("id", -1))
+	var result: Dictionary = _internal_mgr.execute_command(cid, cmd_type)
+
+	if result.get("success"):
+		# 更新本地数据（内存中的当前城市副本）
+		var changes: Dictionary = result.get("changes", {})
+		for field in changes:
+			var delta := int(changes[field])
+			if field == "gold":
+				_city_data[field] = maxi(0, int(_city_data.get(field, 0)) - abs(delta))
+			else:
+				_city_data[field] = maxi(0, int(_city_data.get(field, 0)) + delta)
+
+		_update_values()
+		_update_buttons()
+
+	# 显示反馈
+	var msg = result.get("message", "")
+	_show_feedback(msg)
+
+
+func _show_feedback(msg: String) -> void:
+	_feedback_label.text = msg
+	_feedback_timer = 3.0
+
+
+## 点"内政完了"按钮
+func _on_done() -> void:
+	internal_done.emit()
+	hide_panel()
+
+
+func _process(delta: float) -> void:
+	if _feedback_timer > 0:
+		_feedback_timer -= delta
+		if _feedback_timer <= 0:
+			_feedback_label.text = ""

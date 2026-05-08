@@ -1,0 +1,4 @@
+res://scripts/ui/command_panel.gd
+res://scripts/internal/internal_manager.gd
+res://scripts/main/main.gd
+res://scripts/turn/phase_manager.gd

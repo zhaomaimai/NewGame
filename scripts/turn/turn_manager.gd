@@ -1,34 +1,34 @@
 # version: C4_v1
 # last_modified_cycle: C4
 # ═══════════════════════════════════════════════════════════════════
-# TurnManager — 回合总控制器
+# TurnManager - Turn System Controller
 # ═══════════════════════════════════════════════════════════════════
-# 职责：
-#   1. 创建并管理 DateManager + PhaseManager
-#   2. 处理"结束回合"流程：逐个推进阶段并施加延迟（0.3s/阶段）
-#   3. 结算阶段：月度增长计算（金/粮/人口）
-#   4. AI阶段：非玩家城市额外增长
+# Responsibilities：
+#   1. Create and manage DateManager + PhaseManager
+#   2. Handle end-turn flow: advance phases with 0.3s delay
+#   3. Settlement phase: monthly growth (gold/food/population)
+#   4. AI phase: non-player city bonus growth
 # ═══════════════════════════════════════════════════════════════════
-# 阶段循环（0.3s延迟）：
-#   内政阶段 → 军事阶段 → 行军阶段 → 结算阶段 → AI阶段 → TURN_END → 下一旬(循环)
+# Phase cycle (0.3s delay)：
+#   INTERNAL -> MILITARY -> MARCH -> SETTLEMENT -> AI -> TURN_END -> next turn
 # ═══════════════════════════════════════════════════════════════════
-# 依赖：DateManager, PhaseManager, RandomManager, GameState, DebugSystem
+# Deps: DateManager, PhaseManager, RandomManager, GameState, DebugSystem
 # ═══════════════════════════════════════════════════════════════════
 
 extends Node
 
-## DateManager 引用（在 _ready 中创建并添加为子节点）
+## DateManager reference (created in _ready)
 var date_manager
-## PhaseManager 引用（在 _ready 中创建并添加为子节点）
+## PhaseManager reference (created in _ready)
 var phase_manager
-## TurnIndicator 界面引用（由 main.gd 在初始化时注入）
+## TurnIndicator UI ref (injected by main.gd)
 var turn_indicator: Control
-## EndTurnButton 界面引用（由 main.gd 在初始化时注入）
+## EndTurnButton ref (injected by main.gd)
 var end_turn_button: Button
 
-## 是否正在执行阶段推进中（防止重复点按钮）
+## Is phase advancement in progress (prevents double-click)
 var _advancing := false
-## 粮食增长的月份：3月(春收)、7月(夏收)、9月(秋收)
+## Food harvest months: Mar, Jul, Sep
 var _growth_months := {3: true, 7: true, 9: true}
 
 
@@ -63,12 +63,12 @@ func start_end_turn_flow() -> void:
 	_advance_through_phases()
 
 
-## 核心循环：从当前阶段推进到 TURN_END，每阶段间隔 0.3s
+## Core loop: advance from current phase to TURN_END, 0.3s per phase
 # 到达 TURN_END 后自动：
-#   1. 推进日期到下一旬（DateManager.advance_turn）
-#   2. 重置阶段到 INTERNAL
-#   3. 重置内政指令计数
-#   4. 重新启用结束回合按钮
+#   1. Advance date (DateManager.advance_turn)
+#   2. Reset phase to INTERNAL
+#   3. Reset internal command count
+#   4. Re-enable end-turn button
 func _advance_through_phases() -> void:
 	while phase_manager.current_phase < 5:  # TURN_END = 5
 		phase_manager.advance_phase()
@@ -94,7 +94,7 @@ func _advance_through_phases() -> void:
 
 
 # Execute logic specific to each phase
-## 根据当前阶段执行对应业务逻辑
+## Execute phase-specific logic
 # 阶段-动作映射：
 #   SETTLEMENT (3) → 执行月度增长（金/粮/人口）
 #   AI (4) → 非玩家城市 AI 增长
@@ -129,6 +129,11 @@ func _apply_monthly_growth() -> void:
 		# Gold: commerce × 0.5 + rand(10)
 		var gold_gain := int(comm * 0.5 + RandomManager.randi_range(1, 10))
 		city.gold = mini(int(city.get("gold", 0)) + gold_gain, 3000000)
+
+		# Soldier food consumption: 0.2 food per soldier per month
+		var soldiers := int(city.get("soldiers", 0))
+		var food_cost := int(soldiers * 0.2)
+		city.food = maxi(0, int(city.get("food", 0)) - food_cost)
 
 		# Food: agriculture × 10 + rand(20) — only in 3月/7月/9月
 		if is_food_month:
